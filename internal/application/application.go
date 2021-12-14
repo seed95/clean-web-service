@@ -1,9 +1,13 @@
 package application
 
 import (
+	"fmt"
 	"github.com/seed95/clean-web-service/internal/config"
 	"github.com/seed95/clean-web-service/pkg/log"
 	"github.com/seed95/clean-web-service/pkg/log/logrus"
+	"github.com/seed95/clean-web-service/pkg/translate"
+	"github.com/seed95/clean-web-service/pkg/translate/i18n"
+	"github.com/seed95/clean-web-service/pkg/translate/messages"
 )
 
 func Run(cfg *config.Config) error {
@@ -26,5 +30,16 @@ func Run(cfg *config.Config) error {
 			Message:  "Test logger",
 		})
 	}
+
+	translator, err := i18n.New(cfg.Translator.I18N.MessagePath)
+	if err != nil {
+		logger.Error(&log.Field{
+			Section:  "application",
+			Function: "Run",
+			Message:  err.Error(),
+		})
+	}
+	lang := translate.EN
+	fmt.Println(translator.Translate(messages.UserNotFound, lang))
 	return nil
 }

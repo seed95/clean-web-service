@@ -5,3 +5,7 @@ logger:
     max_age: 720h
     max_size: 20MB
     rotation_time: "24h"
+
+translator:
+  i18n:
+    message_path: "./build/i18n"

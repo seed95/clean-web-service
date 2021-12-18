@@ -2,7 +2,7 @@ package derrors
 
 import (
 	"errors"
-	"github.com/seed95/clean-web-service/pkg/translate/messages"
+	"github.com/seed95/clean-web-service/build/messages"
 	"net/http"
 )
 

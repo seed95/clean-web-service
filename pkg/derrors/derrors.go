@@ -2,7 +2,6 @@ package derrors
 
 import (
 	"errors"
-	"github.com/seed95/clean-web-service/build/messages"
 	"net/http"
 )
 
@@ -53,7 +52,7 @@ func HttpError(err error) (string, int) {
 	var serverErr serverError
 	ok := errors.As(err, &serverErr)
 	if !ok {
-		return messages.GeneralError, http.StatusInternalServerError
+		return "GeneralError", http.StatusInternalServerError
 	}
 
 	code, ok := httpErrors[serverErr.kind]

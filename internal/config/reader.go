@@ -1,13 +1,12 @@
 package config
 
 import (
-	"errors"
+	"github.com/seed95/clean-web-service/build/messages"
+	"github.com/seed95/clean-web-service/pkg/derrors"
 	"gopkg.in/yaml.v3"
 	"os"
 	"path/filepath"
 )
-
-var errorUnknownFileExtension = errors.New("unknown file extension")
 
 func Parse(path string, cfg *Config) (err error) {
 
@@ -15,7 +14,7 @@ func Parse(path string, cfg *Config) (err error) {
 	case ".yaml", ".yml":
 		return parseYaml(path, cfg)
 	default:
-		return errorUnknownFileExtension
+		return derrors.New(derrors.Invalid, messages.UnknownFileExtension)
 	}
 
 }

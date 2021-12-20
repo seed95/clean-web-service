@@ -4,6 +4,7 @@ type (
 	Config struct {
 		Logger     Logger     `yaml:"logger"`
 		Translator Translator `yaml:"translator"`
+		Database   Database   `yaml:"database"`
 	}
 
 	Logger struct {
@@ -19,10 +20,26 @@ type (
 	}
 
 	Translator struct {
-		I18N I18N `yaml:"i18n"`
+		I18n I18n `yaml:"i18n"`
 	}
 
-	I18N struct {
+	I18n struct {
 		MessagePath string `yaml:"message_path"`
+	}
+
+	Database struct {
+		Postgres Postgres `yaml:"postgres"`
+	}
+
+	Postgres struct {
+		Username  string `yaml:"username"`
+		Password  string `yaml:"password"`
+		DBName    string `yaml:"db_name"`
+		Host      string `yaml:"host"`
+		Port      string `yaml:"port"`
+		SSLMode   string `yaml:"ssl_mode"`
+		TimeZone  string `yaml:"time_zone"`
+		Charset   string `yaml:"charset"`
+		Migration bool   `yaml:"migration"`
 	}
 )

@@ -1,2 +1,8 @@
 UserNotFound = "کاربر مورد نظر یافت نشد"
 GeneralError = "خطایی رخ داده است"
+InvalidRole = "نقش نامعتبر است"
+InvalidGender = "جنسیت نامعتبر است"
+
+DBError = "خطایی وجود دارد"
+
+UnknownFileExtension = "پسوند فایل ناشناخته"

@@ -1,2 +1,8 @@
 UserNotFound = "user not found"
 GeneralError = "an error has occurred"
+InvalidRole = "invalid roleString"
+InvalidGender = "invalid genderString"
+
+DBError = "error is exist"
+
+UnknownFileExtension = "unknown file extension"

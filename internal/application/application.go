@@ -1,13 +1,11 @@
 package application
 
 import (
-	"fmt"
 	"github.com/seed95/clean-web-service/internal/config"
+	"github.com/seed95/clean-web-service/internal/repository/postgres"
 	"github.com/seed95/clean-web-service/pkg/log"
 	"github.com/seed95/clean-web-service/pkg/log/logrus"
-	"github.com/seed95/clean-web-service/pkg/translate"
 	"github.com/seed95/clean-web-service/pkg/translate/i18n"
-	"github.com/seed95/clean-web-service/pkg/translate/messages"
 )
 
 func Run(cfg *config.Config) error {
@@ -22,16 +20,7 @@ func Run(cfg *config.Config) error {
 		return err
 	}
 
-	for i := 0; i < 1; i++ {
-		logger.Error(&log.Field{
-			Section:  "application",
-			Function: "Run",
-			Params:   map[string]interface{}{"config": cfg},
-			Message:  "Test logger",
-		})
-	}
-
-	translator, err := i18n.New(cfg.Translator.I18N.MessagePath)
+	translator, err := i18n.New(cfg.Translator.I18n.MessagePath)
 	if err != nil {
 		logger.Error(&log.Field{
 			Section:  "application",
@@ -39,7 +28,13 @@ func Run(cfg *config.Config) error {
 			Message:  err.Error(),
 		})
 	}
-	lang := translate.EN
-	fmt.Println(translator.Translate(messages.UserNotFound, lang))
+
+	repo, err := postgres.New(&cfg.Database.Postgres, logger, translator)
+	if err != nil {
+		return err
+	}
+
+	_ = repo
+
 	return nil
 }

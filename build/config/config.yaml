@@ -9,3 +9,15 @@ logger:
 translator:
   i18n:
     message_path: "./build/i18n"
+
+database:
+  postgres:
+    username: "postgres"
+    password: "1233"
+    db_name: "clean-db"
+    host: "localhost" # test 127.0.0.1
+    port: "5432"
+    ssl_mode: "disable"
+    time_zone: "Asia/Tehran"
+    charset: "utf8mb4"
+    migration: true

@@ -104,7 +104,8 @@ func (r *repository) UpdateUser(user *models.User) (*models.User, error) {
 func (r *repository) DeleteUser(user *models.User) error {
 	u := schema.ConvertUser(user)
 
-	if err := r.db.Model(&schema.User{}).Where("id = ?", user.ID).Delete(u).Error; err != nil {
+	query := r.db.Model(&schema.User{}).Where("id = ?", user.ID).Delete(u)
+	if err := query.Error; err != nil {
 		r.logger.Error(&log.Field{
 			Section:  "repository.user",
 			Function: "DeleteUser",
@@ -112,12 +113,18 @@ func (r *repository) DeleteUser(user *models.User) error {
 			Message:  err.Error(),
 		})
 
-		if isErrorNotFound(err) {
-			return derrors.New(derrors.NotFound, messages.UserNotFound)
-		}
-
 		return derrors.New(derrors.Unexpected, messages.DBError)
+	}
 
+	if query.RowsAffected != 1 {
+		r.logger.Error(&log.Field{
+			Section:  "repository.user",
+			Function: "DeleteUser",
+			Params:   map[string]interface{}{"user": u},
+			Message:  r.translator.Translate(messages.UserNotFound),
+		})
+
+		return derrors.New(derrors.NotFound, messages.UserNotFound)
 	}
 
 	return nil

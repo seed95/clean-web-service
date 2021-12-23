@@ -15,7 +15,7 @@ database:
     username: "postgres"
     password: "1233"
     db_name: "clean-db"
-    host: "localhost" # test 127.0.0.1
+    host: "localhost"
     port: "5432"
     ssl_mode: "disable"
     time_zone: "Asia/Tehran"

@@ -34,8 +34,10 @@ func New(cfg *config.Postgres, logger log.Logger, translator translate.Translato
 		return nil, err
 	}
 
-	if err := postgresRepository.migration(); err != nil {
-		return nil, err
+	if cfg.Migration {
+		if err := postgresRepository.migration(); err != nil {
+			return nil, err
+		}
 	}
 
 	return postgresRepository, nil

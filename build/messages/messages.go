@@ -1,10 +1,16 @@
 package messages
 
 const (
-	UserNotFound         = "UserNotFound"
+	InvalidRole           = "InvalidRole"
+	InvalidGender         = "InvalidGender"
+	InvalidUsernameLength = "InvalidUsernameLength"
+	InvalidPassword       = "InvalidPassword"
+
 	GeneralError         = "GeneralError"
-	InvalidRole          = "InvalidRole"
-	InvalidGender        = "InvalidGender"
-	DBError              = "DBError"
 	UnknownFileExtension = "UnknownFileExtension"
+	DBError              = "DBError"
+
+	UserNotFound                = "UserNotFound"
+	DuplicateUsername           = "DuplicateUsername"
+	IncorrectUsernameOrPassword = "IncorrectUsernameOrPassword"
 )

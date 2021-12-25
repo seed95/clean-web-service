@@ -1,8 +1,14 @@
-UserNotFound = "کاربر مورد نظر یافت نشد"
+
 GeneralError = "خطایی رخ داده است"
 InvalidRole = "نقش نامعتبر است"
 InvalidGender = "جنسیت نامعتبر است"
+InvalidUsernameLength = "ظول نام کاربری نامعتبر است"
+InvalidPassword = "رمز عبور نامعتبر است"
 
 DBError = "خطایی وجود دارد"
 
 UnknownFileExtension = "پسوند فایل ناشناخته"
+
+UserNotFound = "کاربر مورد نظر یافت نشد"
+DuplicateUsername = "نام کاربری تکراری است"
+IncorrectUsernameOrPassword = "نام کاربری یا کلمه عبور اشتباه است"

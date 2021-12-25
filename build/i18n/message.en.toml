@@ -1,8 +1,13 @@
-UserNotFound = "user not found"
 GeneralError = "an error has occurred"
 InvalidRole = "invalid roleString"
 InvalidGender = "invalid genderString"
+InvalidUsernameLength = "invalid username length"
+InvalidPassword = "invalid password"
 
 DBError = "error is exist"
 
 UnknownFileExtension = "unknown file extension"
+
+UserNotFound = "user not found"
+DuplicateUsername = "username is duplicate"
+IncorrectUsernameOrPassword = "username or password is incorrect"

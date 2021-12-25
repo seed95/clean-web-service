@@ -11,7 +11,7 @@ type (
 		Lastname    string
 		Email       string
 		PhoneNumber string
-		Role        types.Role
 		Gender      types.Gender
+		Role        types.Role
 	}
 )

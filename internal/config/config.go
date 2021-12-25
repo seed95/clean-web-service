@@ -5,6 +5,7 @@ type (
 		Logger     Logger     `yaml:"logger"`
 		Translator Translator `yaml:"translator"`
 		Database   Database   `yaml:"database"`
+		Validation Validation `yaml:"validation"`
 	}
 
 	Logger struct {
@@ -41,5 +42,11 @@ type (
 		TimeZone  string `yaml:"time_zone"`
 		Charset   string `yaml:"charset"`
 		Migration bool   `yaml:"migration"`
+	}
+
+	Validation struct {
+		UsernameMinLength  int `yaml:"username_min_length"`
+		UsernameMaxLength  int `yaml:"username_max_length"`
+		PasswordMinLetters int `yaml:"password_min_letters"`
 	}
 )

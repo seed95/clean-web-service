@@ -11,3 +11,5 @@ UnknownFileExtension = "unknown file extension"
 UserNotFound = "user not found"
 DuplicateUsername = "username is duplicate"
 IncorrectUsernameOrPassword = "username or password is incorrect"
+
+ParseQueryError = "parse query error"

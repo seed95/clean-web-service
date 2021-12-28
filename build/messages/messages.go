@@ -13,4 +13,6 @@ const (
 	UserNotFound                = "UserNotFound"
 	DuplicateUsername           = "DuplicateUsername"
 	IncorrectUsernameOrPassword = "IncorrectUsernameOrPassword"
+
+	ParseQueryError = "ParseQueryError"
 )

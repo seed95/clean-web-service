@@ -1,7 +1,6 @@
 package user
 
 import (
-	"github.com/seed95/clean-web-service/internal/config"
 	repo "github.com/seed95/clean-web-service/internal/repository"
 	service "github.com/seed95/clean-web-service/internal/service"
 	"github.com/seed95/clean-web-service/pkg/log"
@@ -10,7 +9,6 @@ import (
 
 type (
 	handler struct {
-		cfg        *config.Config
 		userRepo   repo.UserRepository
 		validation service.ValidationService
 		logger     log.Logger
@@ -18,7 +16,6 @@ type (
 	}
 
 	Option struct {
-		Cfg        *config.Config
 		UserRepo   repo.UserRepository
 		Validation service.ValidationService
 		Logger     log.Logger
@@ -28,7 +25,6 @@ type (
 
 func New(opt *Option) service.UserService {
 	return &handler{
-		cfg:        opt.Cfg,
 		userRepo:   opt.UserRepo,
 		validation: opt.Validation,
 		logger:     opt.Logger,

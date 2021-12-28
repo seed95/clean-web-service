@@ -12,3 +12,5 @@ UnknownFileExtension = "پسوند فایل ناشناخته"
 UserNotFound = "کاربر مورد نظر یافت نشد"
 DuplicateUsername = "نام کاربری تکراری است"
 IncorrectUsernameOrPassword = "نام کاربری یا کلمه عبور اشتباه است"
+
+ParseQueryError = "خطای پارامترهای ورودی"

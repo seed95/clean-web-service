@@ -14,8 +14,11 @@
 # Idea configure files
 .idea
 
+# Logs
 logs
-logs/*
+
+# Executable program
+app
 
 # Dependency directories (remove the comment below to include it)
 # vendor/

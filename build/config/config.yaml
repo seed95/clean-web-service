@@ -26,3 +26,12 @@ validation:
   username_min_length: 3
   username_max_length: 50
   password_min_letters: 3
+
+server:
+  rest:
+    echo:
+      host: 0.0.0.0
+      port: 8085
+    gin:
+      host: 0.0.0.0
+      port: 8085

@@ -7,7 +7,8 @@ and its videos inside
 ## Table of Contents
 **[Log](#Log)**  
 **[Translate](#Translate)**  
-**[Api](#Api)**
+**[CLI](#Command Line Interface)**  
+**[Server](#Server)**  
 
 ### Log
 Used [logrus](https://github.com/sirupsen/logrus) package for log and
@@ -18,5 +19,10 @@ for writing with rotating and have lifetime and maximum size for file.
 Used [i18n](https://github.com/nicksnyder/go-i18n) package for the 
 translator.
 
-### Api
-Used [echo](https://echo.labstack.com/) package for the web service and api.
+### Command Line Interface
+Used [cobra](https://github.com/spf13/cobra) package for creating modern CLI applications.
+
+### Server
+Used below packages for the web service and restApi.
+* [echo](https://echo.labstack.com/)
+* [gin](https://github.com/gin-gonic/gin)

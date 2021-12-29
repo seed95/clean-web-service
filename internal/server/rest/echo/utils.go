@@ -2,13 +2,13 @@ package echo
 
 import (
 	"github.com/labstack/echo/v4"
-	"github.com/seed95/clean-web-service/internal/api"
+	"github.com/seed95/clean-web-service/internal/server/rest"
 	"github.com/seed95/clean-web-service/pkg/translate"
 	"strconv"
 )
 
 func getLang(c echo.Context) []translate.Language {
-	return api.GetLanguage(c.Request().Header.Get("Accept-Language"))
+	return rest.GetLanguage(c.Request().Header.Get("Accept-Language"))
 }
 
 func getId(c echo.Context) (uint, error) {

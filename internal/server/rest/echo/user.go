@@ -3,20 +3,20 @@ package echo
 import (
 	"github.com/labstack/echo/v4"
 	"github.com/seed95/clean-web-service/build/messages"
-	"github.com/seed95/clean-web-service/internal/api/params"
+	"github.com/seed95/clean-web-service/internal/server/params"
 	"github.com/seed95/clean-web-service/pkg/derrors"
 	"github.com/seed95/clean-web-service/pkg/log"
 	"net/http"
 )
 
-func (h *httpServer) createUser(c echo.Context) error {
+func (h *server) createUser(c echo.Context) error {
 
 	lang := getLang(c)
 
 	reqParam := new(params.CreateUserRequest)
 	if err := c.Bind(reqParam); err != nil {
 		h.logger.Error(&log.Field{
-			Section:  "api.user",
+			Section:  "server.user",
 			Function: "createUser",
 			Message:  h.translator.Translate(err.Error()),
 		})
@@ -28,7 +28,7 @@ func (h *httpServer) createUser(c echo.Context) error {
 		msg, code := derrors.HttpError(err)
 
 		h.logger.Error(&log.Field{
-			Section:  "api.user",
+			Section:  "server.user",
 			Function: "createUser",
 			Params:   map[string]interface{}{"user": reqParam},
 			Message:  h.translator.Translate(msg, lang...),
@@ -39,24 +39,21 @@ func (h *httpServer) createUser(c echo.Context) error {
 
 	user, err = h.userService.CreateUser(user)
 	if err != nil {
-		message, code := derrors.HttpError(err)
-		return &echo.HTTPError{
-			Code:    code,
-			Message: h.translator.Translate(message, lang...),
-		}
+		msg, code := derrors.HttpError(err)
+		return echo.NewHTTPError(code, h.translator.Translate(msg, lang...))
 	}
 
 	return c.JSON(http.StatusOK, params.ConvertCreateUserResponse(user))
 }
 
-func (h *httpServer) getUser(c echo.Context) error {
+func (h *server) getUser(c echo.Context) error {
 
 	lang := getLang(c)
 
 	id, err := getId(c)
 	if err != nil {
 		h.logger.Error(&log.Field{
-			Section:  "api.user",
+			Section:  "server.user",
 			Function: "getUser",
 			Message:  err.Error(),
 		})
@@ -74,14 +71,14 @@ func (h *httpServer) getUser(c echo.Context) error {
 
 }
 
-func (h *httpServer) deleteUser(c echo.Context) error {
+func (h *server) deleteUser(c echo.Context) error {
 
 	lang := getLang(c)
 
 	id, err := getId(c)
 	if err != nil {
 		h.logger.Error(&log.Field{
-			Section:  "api.user",
+			Section:  "server.user",
 			Function: "getUser",
 			Message:  err.Error(),
 		})

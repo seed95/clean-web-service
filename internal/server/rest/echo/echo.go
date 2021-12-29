@@ -3,20 +3,23 @@ package echo
 import (
 	"fmt"
 	"github.com/labstack/echo/v4"
-	"github.com/seed95/clean-web-service/internal/api"
+	"github.com/seed95/clean-web-service/internal/config"
+	"github.com/seed95/clean-web-service/internal/server/rest"
 	"github.com/seed95/clean-web-service/internal/service"
 	"github.com/seed95/clean-web-service/pkg/log"
 	"github.com/seed95/clean-web-service/pkg/translate"
 )
 
 type (
-	httpServer struct {
+	server struct {
+		cfg         *config.Echo
 		userService service.UserService
 		logger      log.Logger
 		translator  translate.Translator
 	}
 
 	Fields struct {
+		Cfg         *config.Echo
 		UserService service.UserService
 		Logger      log.Logger
 		Translator  translate.Translator
@@ -25,20 +28,21 @@ type (
 
 var e = echo.New()
 
-func New(fields *Fields) api.HttpServer {
-	return &httpServer{
+func New(fields *Fields) rest.Server {
+	return &server{
+		cfg:         fields.Cfg,
 		userService: fields.UserService,
 		logger:      fields.Logger,
 		translator:  fields.Translator,
 	}
 }
 
-func (h *httpServer) Start(port int) error {
+func (h *server) Start() error {
 	h.setRoutes()
-	return e.Start(fmt.Sprintf(":%d", port))
+	return e.Start(fmt.Sprintf(":%d", h.cfg.Port))
 }
 
-func (h *httpServer) setRoutes() {
+func (h *server) setRoutes() {
 	e.POST("/user", h.createUser)
 	e.GET("/user/:id", h.getUser)
 	e.DELETE("/user/:id", h.deleteUser)

@@ -6,6 +6,7 @@ type (
 		Translator Translator `yaml:"translator"`
 		Database   Database   `yaml:"database"`
 		Validation Validation `yaml:"validation"`
+		Server     Server     `yaml:"server"`
 	}
 
 	Logger struct {
@@ -48,5 +49,24 @@ type (
 		UsernameMinLength  int `yaml:"username_min_length"`
 		UsernameMaxLength  int `yaml:"username_max_length"`
 		PasswordMinLetters int `yaml:"password_min_letters"`
+	}
+
+	Server struct {
+		Rest Rest `yaml:"rest"`
+	}
+
+	Rest struct {
+		Gin  Gin  `yaml:"gin"`
+		Echo Echo `yaml:"echo"`
+	}
+
+	Gin struct {
+		Host string `yaml:"host"`
+		Port int    `yaml:"port"`
+	}
+
+	Echo struct {
+		Host string `yaml:"host"`
+		Port int    `yaml:"port"`
 	}
 )

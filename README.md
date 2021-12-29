@@ -7,7 +7,7 @@ and its videos inside
 ## Table of Contents
 **[Log](#Log)**  
 **[Translate](#Translate)**  
-**[CLI](#Command Line Interface)**  
+**[CLI](#Command-Line-Interface)**  
 **[Server](#Server)**  
 
 ### Log

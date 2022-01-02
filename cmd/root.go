@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/seed95/clean-web-service/internal/application"
+	"github.com/seed95/clean-web-service/application"
 	"github.com/spf13/cobra"
 	"log"
 )
@@ -35,5 +35,5 @@ func Execute() error {
 
 func init() {
 	rootCmd.Flags().StringVar(&configFile, "config", configFile, "config file")
-	rootCmd.Flags().StringVarP(&restType, "rest", "r", "echo", "select rest framework between \"gin\" or \"echo\"")
+	rootCmd.Flags().StringVarP(&restType, "rest-mode", "r", "echo", "select rest framework between \"gin\" or \"echo\"")
 }

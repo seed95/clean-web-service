@@ -1,4 +1,4 @@
-package rest
+package server
 
 import (
 	"github.com/seed95/clean-web-service/pkg/translate"

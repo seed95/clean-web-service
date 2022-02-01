@@ -11,7 +11,7 @@ var (
 	restType   string
 
 	rootCmd = &cobra.Command{
-		Use:   "app [-r echo | -s gin]",
+		Use:   "app [-r gin]",
 		Short: "User is a very simple web service",
 		Long: `A very simple web service with clean architecture and used popular library in Go such as gin, echo, gorm.
 
@@ -35,5 +35,5 @@ func Execute() error {
 
 func init() {
 	rootCmd.Flags().StringVar(&configFile, "config", configFile, "config file")
-	rootCmd.Flags().StringVarP(&restType, "rest-mode", "r", "echo", "select rest framework between \"gin\" or \"echo\"")
+	rootCmd.Flags().StringVarP(&restType, "rest-mode", "r", "echo", `select rest framework between "gin" or "echo"`)
 }

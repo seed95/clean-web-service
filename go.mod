@@ -6,16 +6,18 @@ require (
 	github.com/BurntSushi/toml v0.3.1
 	github.com/alecthomas/units v0.0.0-20210927113745-59d0afb8317a
 	github.com/gin-gonic/gin v1.7.7
+	github.com/golang/protobuf v1.5.2
 	github.com/labstack/echo/v4 v4.6.1
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/logrusorgru/aurora v2.0.3+incompatible
 	github.com/nicksnyder/go-i18n/v2 v2.1.2
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cobra v1.3.0
-	github.com/spf13/viper v1.10.0
 	github.com/xhit/go-str2duration/v2 v2.0.0
 	golang.org/x/crypto v0.0.0-20211209193657-4570a0811e8b
 	golang.org/x/text v0.3.7
+	google.golang.org/grpc v1.42.0
+	google.golang.org/protobuf v1.27.1
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 	gorm.io/driver/postgres v1.2.3
 	gorm.io/gorm v1.22.4
@@ -27,7 +29,6 @@ require (
 	github.com/go-playground/locales v0.13.0 // indirect
 	github.com/go-playground/universal-translator v0.17.0 // indirect
 	github.com/go-playground/validator/v10 v10.4.1 // indirect
-	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
@@ -57,13 +58,14 @@ require (
 	github.com/spf13/cast v1.4.1 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/spf13/viper v1.10.0 // indirect
 	github.com/subosito/gotenv v1.2.0 // indirect
 	github.com/ugorji/go/codec v1.1.7 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.1 // indirect
 	golang.org/x/net v0.0.0-20211112202133-69e39bad7dc2 // indirect
 	golang.org/x/sys v0.0.0-20211214234402-4825e8c3871d // indirect
-	google.golang.org/protobuf v1.27.1 // indirect
+	google.golang.org/genproto v0.0.0-20211208223120-3a66f561d7aa // indirect
 	gopkg.in/ini.v1 v1.66.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )

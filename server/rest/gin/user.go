@@ -5,7 +5,7 @@ import (
 	"github.com/seed95/clean-web-service/build/messages"
 	"github.com/seed95/clean-web-service/pkg/derrors"
 	"github.com/seed95/clean-web-service/pkg/log"
-	"github.com/seed95/clean-web-service/server/params"
+	"github.com/seed95/clean-web-service/server/rest/params"
 	"net/http"
 )
 
@@ -48,7 +48,7 @@ func (h *server) createUser(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, params.ConvertCreateUserResponse(user))
-	
+
 }
 
 func (h *server) getUser(c *gin.Context) {

@@ -4,6 +4,7 @@
 *.dll
 *.so
 *.dylib
+*.vscode
 
 # Test binary, built with `go test -c`
 *.test
@@ -19,6 +20,10 @@ logs
 
 # Executable program
 app
+
+# Proto generated files
+api
+
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
